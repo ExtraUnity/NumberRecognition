@@ -1,9 +1,9 @@
 import java.io.*;
 
-class MnistReader {
-  BufferedInputStream input;
+static class MnistReader {
+  static BufferedInputStream input;
 
-  int[][] loadMnistImages(File inputFile) throws IOException {
+  static int[][] loadMnistImages(File inputFile) throws IOException {
 
     input = new BufferedInputStream(new FileInputStream(inputFile));
 
@@ -28,7 +28,7 @@ class MnistReader {
     return images;
   }
 
-  int[] loadMnistLabels(File inputFile) throws IOException {
+  static int[] loadMnistLabels(File inputFile) throws IOException {
 
     input = new BufferedInputStream(new FileInputStream(inputFile));
 
@@ -44,7 +44,7 @@ class MnistReader {
     return labels;
   }
 
-  int nextBytes(int n) throws IOException {
+  static int nextBytes(int n) throws IOException {
     int num = 0;
     for (int i = n-1; i>=0; i--) { //this is only nessecary for the first lines, which have 32-bit integers
       int temp = input.read();
